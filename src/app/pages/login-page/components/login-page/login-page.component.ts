@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -8,14 +9,22 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class LoginPageComponent implements OnInit {
 
+  public form: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
+
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
   public login(): void{
-    this.auth.login();
+    if (this.form.valid) {
+      this.auth.login();
+    }
   }
+
   public exit(): void{
     this.auth.exit();
   }

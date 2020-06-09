@@ -6,6 +6,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
     CoreModule,
     SharedModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
